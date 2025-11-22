@@ -1,0 +1,97 @@
+.navbar {
+  justify-content: space-between;
+  padding: 0 40px;
+  background-color: white;
+}
+
+.navbar_heading {
+  width: 100%;
+  margin-right: 20px;
+  color: darkblue;
+}
+
+.navbar_form {
+  position: relative;
+  width: 450px;
+  height: 40px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.navbar_search {
+  flex: 1;
+  height: 100%;
+  padding: 0 7px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.search_button {
+  height: 100%;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  background-color: #6457f9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search_result {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.search_suggition_list {
+  display: flex;
+}
+
+.search_suggition_list > a {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search_suggition_list:hover,
+.search_suggition_list.active {
+  background-color: #e3e3e3;
+}
+
+.navbar_link {
+  font-size: 20px;
+}
+
+.navbar_link > a {
+  margin: 15px;
+}
+.navbar_link > a.active {
+  font-weight: 600;
+}
+
+.link_emoji {
+  width: 25px;
+  margin-left: 5px;
+}
+
+.card_count {
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #6457f9;
+  color: #fff;
+  font-size: 15px;
+  margin-left: 5px;
+}
