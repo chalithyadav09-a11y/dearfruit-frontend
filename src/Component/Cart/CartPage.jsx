@@ -1,5 +1,5 @@
 import React, { memo, useContext, useEffect, useMemo, useState } from "react";
-
+import config from "../../config.json"
 import UserContext from "../../contexts/userContext";
 import CartContext from "../../contexts/cartContext";
 import remove from "../../assets/remove.png";
@@ -40,7 +40,7 @@ const CartPage = () => {
     <section className="align_center cart_page">
       <div className="align_center user_info">
         <img
-          src={`http://localhost:5000/profile/${user?.profilePic}`}
+          src={`${config.backendURL}/profile/${user?.profilePic}`}
           alt="user profile"
         />
         <div>

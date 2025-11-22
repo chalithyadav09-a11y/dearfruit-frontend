@@ -5,6 +5,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import useData from "../../hooks/useData";
 import CartContext from "../../contexts/cartContext";
 import UserContext from "../../contexts/userContext";
+import config from "../../config.json"
 
 const SingleProduct = () => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -32,14 +33,14 @@ const SingleProduct = () => {
                 <img
                   key={index}
                   className={selectedImage === index ? "selected_image" : ""}
-                  src={`http://localhost:5000/products/${image}`}
+                  src={`${config.backendURL}/products/${image}`}
                   alt={product.title}
                   onClick={() => setSelectedImage(index)}
                 />
               ))}
             </div>
             <img
-              src={`http://localhost:5000/products/${product.images[selectedImage]}`}
+              src={`${config.backendURL}/products/${product.images[selectedImage]}`}
               alt={product.title}
               className="single_product_display"
             />
