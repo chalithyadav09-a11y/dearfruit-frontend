@@ -17,7 +17,7 @@ const ProductCard = ({product}) => {
       <div className="product_image">
         <NavLink to={`/product/${product?._id}`}>
           <img
-            src={`${config.backendURL}/${product?.images[0]}`}
+            src={`${config.backendURL}/products/${product?.images[0]}`}
             alt="Product Image"
           />
         </NavLink>

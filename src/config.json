@@ -1,3 +1,4 @@
 {
-    "backendURL": "https://cartwish-backend-node-kirc.onrender.com"
+    "backendURL": "https://cartwish-backend-node-kirc.onrender.com",
+    "backendURL_local": "http://localhost:5000"
 }
