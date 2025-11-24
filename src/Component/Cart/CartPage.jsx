@@ -1,5 +1,5 @@
 import React, { memo, useContext, useEffect, useMemo, useState } from "react";
-import config from "../../config.json"
+import config from "../../config.json";
 import UserContext from "../../contexts/userContext";
 import CartContext from "../../contexts/cartContext";
 import remove from "../../assets/remove.png";
@@ -11,7 +11,8 @@ import { toast } from "react-toastify";
 
 const CartPage = () => {
   const user = useContext(UserContext);
-  const { cart, removeFromCart, updateCart, setCart } = useContext(CartContext);
+  const { cart, removeFromCart, updateCart, checkoutCart } =
+    useContext(CartContext);
   console.log("carttt-->", cart);
 
   const subTotal = useMemo(() => {
@@ -23,18 +24,18 @@ const CartPage = () => {
     return total;
   }, [cart]);
 
-  const checkout = () => {
-    const oldCart = [...cart];
-    setCart([]);
-    checkoutAPI()
-      .then(() => {
-        toast.success("Order placed successfully");
-      })
-      .catch((err) => {
-        toast.error("Somthing went wrong!");
-        setCart(oldCart);
-      });
-  };
+  // const checkout = () => {
+  //   const oldCart = [...cart];
+  //   setCart([]);
+  //   checkoutAPI()
+  //     .then(() => {
+  //       toast.success("Order placed successfully");
+  //     })
+  //     .catch((err) => {
+  //       toast.error("Somthing went wrong!");
+  //       setCart(oldCart);
+  //     });
+  // };
 
   return (
     <section className="align_center cart_page">
@@ -93,7 +94,12 @@ const CartPage = () => {
           </tr>
         </tbody>
       </table>
-      <button className="search_button checkout_buttton" onClick={checkout}>
+      <button
+        className="search_button checkout_buttton"
+        onClick={() => {
+          checkoutCart(cart);
+        }}
+      >
         Checkout
       </button>
     </section>

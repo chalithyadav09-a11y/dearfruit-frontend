@@ -2,10 +2,11 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import apiClient from "../utils/api-client";
 
 const useProductsList = (query) => {
-  const fetchFunction = ({ pageParm = 1 }) =>
+  const fetchFunction = ({ pageParam = 1 }) =>
     apiClient
-      .get("/products", {params: { ...query, page: pageParm }})
+      .get("/products", { params: { ...query, page: pageParam } })
       .then((res) => res.data);
+
   return useInfiniteQuery({
     queryKey: ["products", query],
     queryFn: fetchFunction,

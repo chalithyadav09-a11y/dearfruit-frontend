@@ -15,6 +15,7 @@ import cartReducer from "./reducer/cartReducer";
 import useAddToCart from "./hooks/cart/useAddtoCart";
 import useRemoveFromCart from "./hooks/cart/useRemoveFromCart";
 import useUpdateCart from "./hooks/cart/useUpdateCart";
+import useCheckoutCart from "./hooks/cart/useCheckoutCart";
 
 setAuthToken(getJwt());
 
@@ -27,6 +28,7 @@ const App = () => {
   const addToCartMutation = useAddToCart();
   const removeFromCartMutation = useRemoveFromCart();
   const updateCartMutation = useUpdateCart();
+    const checkoutCartMutation = useCheckoutCart();
 
   useEffect(() => {
     if (cartData) {
@@ -112,10 +114,22 @@ const App = () => {
     [cart]
   );
 
+    const checkoutCart = useCallback(() => {
+    checkoutCartMutation.mutate(
+      { cart },
+      {
+        onError: () => {
+          toast.error("Something went wrong!");
+          dispatchCart({ type: "REVERT_CART", payload: { cart } });
+        },
+      }
+    );
+  }, [cart]);
+
   return (
     <UserContext.Provider value={user}>
       <CartContext.Provider
-        value={{ cart, addToCart, removeFromCart, updateCart }}
+        value={{ cart, addToCart, removeFromCart, updateCart, checkoutCart }}
       >
         <div className="app">
           <Navbar />
